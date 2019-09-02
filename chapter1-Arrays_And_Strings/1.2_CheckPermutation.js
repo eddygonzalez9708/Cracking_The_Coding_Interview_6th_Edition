@@ -11,8 +11,8 @@ function CheckPermutation(str1, str2) {
   // else sort and compare 
   // (doesnt matter how it's sorted, as long as it's sorted the same way)
   } else {
-    const new_str1 = str1.split('').sort((a, b) => a > b).join('')
-    const new_str2 = str2.split('').sort((a, b) => a > b).join('')
+    const new_str1 = str1.split('').sort().join('')
+    const new_str2 = str2.split('').sort().join('')
     return new_str1 === new_str2
   }
 }
