@@ -48,7 +48,7 @@ function oneAwayOne(str1, str2) {
 }
 
 // Tests
-console.log(oneAwayOne('pale', 'pIe')); // Should return true
+"console.log(oneAwayOne('pale', 'pIe')); // Should return true
 console.log(oneAwayOne('pales', 'pale')); // Should return true
 console.log(oneAwayOne('pale', 'bale')); // Should return true 
 console.log(oneAwayOne('pale', 'bake')); // Should return false 
@@ -117,7 +117,7 @@ function oneAwayTwo(string1, string2) {
   return checkOneMissing(string1, string2) || checkOneMissing(string2, string1) || checkOneDiff(string1, string2);
 };
 
-// Test
+// Tests
 console.log(oneAwayTwo('pale', 'ple')); // Should return true
 console.log(oneAwayTwo('pales', 'pale')) // Should return true
 console.log(oneAwayTwo('pale', 'bale')); // Should return true
