@@ -48,7 +48,7 @@ function oneAwayOne(str1, str2) {
 }
 
 // Tests
-"console.log(oneAwayOne('pale', 'pIe')); // Should return true
+console.log(oneAwayOne('pale', 'pIe')); // Should return true
 console.log(oneAwayOne('pales', 'pale')); // Should return true
 console.log(oneAwayOne('pale', 'bale')); // Should return true 
 console.log(oneAwayOne('pale', 'bake')); // Should return false 
