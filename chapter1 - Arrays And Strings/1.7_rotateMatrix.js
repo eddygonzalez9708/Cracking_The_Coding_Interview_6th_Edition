@@ -29,7 +29,7 @@ var testMatrix = [
   [1, 0, 0, 1]];
 
 // Tests
-// console.log(rotateMatrix(testMatrix)) 
+console.log(rotateMatrixOne(testMatrix)) 
 
 /* Should be:
   [
@@ -54,32 +54,32 @@ function rotateMatrixTwo(matrix) {
     var toCol = col; // 0
     var toPixel = matrix[row][col]; // 1
 
-    console.log('toRow', toRow)
-    console.log('toCol', toCol)
-    console.log('toPixel', toPixel, '\n')
+    // console.log('toRow', toRow)
+    // console.log('toCol', toCol)
+    // console.log('toPixel', toPixel, '\n')
   
     // Do rotational transformation 4 times
     for (var i = 0; i < 4; i++) {
-      console.log('i', i)
-      console.log('old matrix', matrix)
+      // console.log('i', i)
+      // console.log('old matrix', matrix)
       fromRow = toRow;
       fromCol = toCol;
       toRow = fromCol;
       toCol = edge - fromRow;
 
-      console.log('fromRow', fromRow)
-      console.log('fromCol', fromCol)
-      console.log('toRow', toRow)
-      console.log('toCol', toCol)
+      // console.log('fromRow', fromRow)
+      // console.log('fromCol', fromCol)
+      // console.log('toRow', toRow)
+      // console.log('toCol', toCol)
   
       fromPixel = toPixel;
       toPixel = matrix[toRow][toCol];
       matrix[toRow][toCol] = fromPixel;
 
-      console.log('fromPixel', fromPixel)
-      console.log('toPixel', toPixel)
-      console.log(`matrix[${toRow}][${toCol}]`,  matrix[toRow][toCol])
-      console.log('matrix', matrix, '\n')
+      // console.log('fromPixel', fromPixel)
+      // console.log('toPixel', toPixel)
+      // console.log(`matrix[${toRow}][${toCol}]`,  matrix[toRow][toCol])
+      // console.log('matrix', matrix, '\n')
     }
   }
   
@@ -97,7 +97,7 @@ function rotateMatrixTwo(matrix) {
 // console.log(testMatrix[2]);
 // console.log(testMatrix[3]);
   
-rotateMatrixTwo(testMatrix);
+// rotateMatrixTwo(testMatrix);
   
 // console.log('after:');
 // console.log(testMatrix[0]);
@@ -141,14 +141,14 @@ position of 1 -> m[edge][edge - 1]
 1000
 0000
 
-position of 1 -> m[edge-1][0]
+position of 1 -> m[edge - 1][0]
 
 0100
 0000
 0000
 0000
 
-osition of 1 -> m[0][1]
+position of 1 -> m[0][1] 
 
 flow of iteration:
 
