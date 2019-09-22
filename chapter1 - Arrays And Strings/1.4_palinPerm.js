@@ -1,17 +1,21 @@
 /* 
-
-Palindrome Permutation: 
+1.4 Palindrome Permutation: 
 
 Given a string, write a function to check if it is a permutation of a palin- drome.
 A palindrome is a word or phrase that is the same forwards and backwards.
-A permutation is a rearrangement of letters.The palindrome does not need to be limited to just dictionary words.
+A permutation is a rearrangement of letters.
+The palindrome does not need to be limited to just dictionary words.
 
 EXAMPLE
 
 Input: Tact Coa
 
-Output: True (permutations: "taco cat". "atco cta". etc.) Hints: #106, #121, #134, #136
+Output: True (permutations: "taco cat". "atco cta". etc.)
+
+Hints: #106, #121, #134, #136
 */
+
+// My Solution
 
 function palinPermOne(i) {
   const mem = {};
@@ -41,11 +45,13 @@ function palinPermOne(i) {
   return Object.keys(mem).length === 1;
 }
 
-// TESTS
+// TESTS for My Solution
 console.log(palinPermOne('Tact Coa')); // Should return true
 console.log(palinPermOne('Tact boa')); // Should return false
 
-var palinPermTwo = function(string) {
+// CTCI Solution
+
+function palinPermTwo(string) {
   // create object literal to store charcount
   var chars = {};
   var currChar;
@@ -61,24 +67,25 @@ var palinPermTwo = function(string) {
       }
       chars[currChar]++;
     }
-  });
+  })
 
   // check that all chars are even count, except for one exception
   Object.keys(chars).forEach((char) => {
     if (chars[char] % 2 > 0) {
-    // if more than one exception, return false
+      // if more than one exception, return false
       if (mulligan) {
-        isPerm = false; // return in a forEach statment doesn't flow out of function scope
+        // return in a forEach statment doesn't flow out of function scope
+        isPerm = false;
       } else {
         mulligan = true;
       }
     }
-  });
+  })
 
   // if not return true
   return isPerm;
 };
 
-// TESTS
+// TESTS for CTCI Solution
 console.log(palinPermTwo('Tact Coa')); // Should return true
 console.log(palinPermTwo('Tact boa')); // Should return false

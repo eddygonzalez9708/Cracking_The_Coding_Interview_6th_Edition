@@ -6,7 +6,7 @@ For example, the string aabcccccaaa would become a2b1c5a3.
 If the "compressed" string would not become smaller than the original string, your method should return the original string.
 You can assume the string has only uppercase and lowercase letters (a - z).
 
-Hints: #92, # 110
+Hints: #92, #110
 */
 
 function strComprOne(str) {
@@ -14,26 +14,28 @@ function strComprOne(str) {
   let count = 1; // counter to keep track of each char repeated
 
   for (let x = 1; x < str.length; x++) {
-    const last_char = newStr.length - 1
+    const last_char = newStr.length - 1;
 
     if (str[x] === newStr[last_char]) {
-      count++
+      count++;
       
       if (x === str.length - 1) {
-        newStr += count
+        newStr += count;
       }
     } else {
-      newStr += count + str[x]
-      count = 1
+      newStr += count + str[x];
+      count = 1;
     }
   }
 
   return newStr.length < str.length ? newStr : str;
-}
+};
 
-// Tests
-// console.log(strComprOne('aabcccccaaa')); // Should return a2b1c5a3
-// console.log(strComprOne('aaaaaa')); // Should return a6
+// Tests for My Solution
+console.log(strComprOne('aabcccccaaa')); // Should return a2b1c5a3
+console.log(strComprOne('aaaaaa')); // Should return a6
+
+// CTCI Solution
 
 function strComprTwo(string) {
   var compressed = '';
@@ -60,6 +62,6 @@ function strComprTwo(string) {
   return maxCount === 1 ? string : compressed;
 };
 
-// Tests
-console.log(strComprTwo('aabcccccaaa')) // Should return a2b1c5a3;
+// Tests for CTCI Solution
+console.log(strComprTwo('aabcccccaaa')); // Should return a2b1c5a3;
 console.log(strComprTwo('aaaaaa')); // Should return a6

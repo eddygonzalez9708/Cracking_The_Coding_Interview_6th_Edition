@@ -1,5 +1,5 @@
 /*
-Rotate Matrix:
+1.7 Rotate Matrix:
 
 Given an image represented by an NxN matrix, where each pixel in the image is 4 bytes, write a method to rotate the image by 90 degrees.
 Can you do this in place?
@@ -7,19 +7,20 @@ Can you do this in place?
 Hints: #51, #100
 */
 
+// My Solution
+
 function rotateMatrixOne(matrix) {
-  const rotatedMatrix = []
+  const rotatedMatrix = [];
 
   for (let x = 0; x < matrix.length; x++) {
-    rotatedMatrix.push([])
+    rotatedMatrix.push([]);
 
     for (let y = matrix.length - 1; y > -1; y--) {
-
-      rotatedMatrix[x].push(matrix[y][x])
+      rotatedMatrix[x].push(matrix[y][x]);
     }
   }
 
-  return rotatedMatrix
+  return rotatedMatrix;
 }
 
 var testMatrix = [
@@ -28,8 +29,8 @@ var testMatrix = [
   [0, 0, 1, 2],
   [1, 0, 0, 1]];
 
-// Tests
-console.log(rotateMatrixOne(testMatrix)) 
+// Tests for My Solution
+console.log(rotateMatrixOne(testMatrix));
 
 /* Should be:
   [
@@ -38,6 +39,8 @@ console.log(rotateMatrixOne(testMatrix))
     [0, 1, 2, 3],
     [1, 2, 3, 4]
   ] */
+
+// CTCI Solution
 
 function rotateMatrixTwo(matrix) {
   var edge = matrix.length - 1;
@@ -91,19 +94,20 @@ function rotateMatrixTwo(matrix) {
   }
 }
 
-// console.log('before:');
-// console.log(testMatrix[0]);
-// console.log(testMatrix[1]);
-// console.log(testMatrix[2]);
-// console.log(testMatrix[3]);
+// Tests for CTCI Solution
+console.log('before:');
+console.log(testMatrix[0]);
+console.log(testMatrix[1]);
+console.log(testMatrix[2]);
+console.log(testMatrix[3]);
   
-// rotateMatrixTwo(testMatrix);
+rotateMatrixTwo(testMatrix);
   
-// console.log('after:');
-// console.log(testMatrix[0]);
-// console.log(testMatrix[1]);
-// console.log(testMatrix[2]);
-// console.log(testMatrix[3]);
+console.log('after:');
+console.log(testMatrix[0]);
+console.log(testMatrix[1]);
+console.log(testMatrix[2]);
+console.log(testMatrix[3]);
   
 /*
 var edge = n - 1;
@@ -132,7 +136,6 @@ position of 1 -> m[1][edge]
 0000
 0000
 0010
-
 
 position of 1 -> m[edge][edge - 1]
 

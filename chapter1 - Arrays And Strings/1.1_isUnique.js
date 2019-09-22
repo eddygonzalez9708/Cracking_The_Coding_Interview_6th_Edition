@@ -1,13 +1,16 @@
 /* 
-1.1 Is Unique: 
+1.1 Is Unique:
+
 Implement an algorithm to determine if a str has all unique characters. 
 What if you cannot use additional data structures?
 
 Hints: #7, #84, #722, #737
 */
 
+// My Solution
+
 function IsUniqueOne(str) {
-  let mem = {}
+  let mem = {};
 
   /* 
   The runtime is O(n). The space complexity is O(n). 
@@ -19,21 +22,24 @@ function IsUniqueOne(str) {
 
   for (let x = 0; x < str.length; x++) {
     if (mem[str[x]]) {
-      return false
+      return false;
     } else {
-      mem[str[x]] = true
+      mem[str[x]] = true;
     }
   }
 
-  return true
-}
+  return true;
+};
 
-console.log(IsUniqueOne('Bed')) // Should return true
-console.log(IsUniqueOne('Eddy')) // Should return false
-console.log(IsUniqueOne('Code')) // Should return true 
+// Tests for My Solution
+
+console.log(IsUniqueOne('Bed')); // Should return true
+console.log(IsUniqueOne('Eddy')); // Should return false
+console.log(IsUniqueOne('Code')); // Should return true 
+
+// CTCI Solution
 
 function IsUniqueTwo(str) {
-
   /* 
   The runtime is O(n^2). There are no additional data structures 
   used. For each character, check remaining characters for duplicates.
@@ -41,13 +47,15 @@ function IsUniqueTwo(str) {
 
   for (let x = 0; x < str.length; x++) {
     for (let y = x + 1; y < str.length; y++) {
-      if (str[x] === str[y]) return false
+      if (str[x] === str[y]) return false;
     }
   }
 
-  return true
-}
+  return true;
+};
 
-console.log(IsUniqueTwo('Bed')) // Should return true
-console.log(IsUniqueTwo('Eddy')) // Should return false
-console.log(IsUniqueTwo('Code')) // Should return true  
+// Tests for CTCI Solution
+
+console.log(IsUniqueTwo('Bed')); // Should return true
+console.log(IsUniqueTwo('Eddy')); // Should return false
+console.log(IsUniqueTwo('Code')); // Should return true  
