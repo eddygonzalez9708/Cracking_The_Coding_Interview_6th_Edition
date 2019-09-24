@@ -24,9 +24,6 @@ class LinkedListOne {
     if (!this.head) {
       this.head = node;
       this.tail = node;
-    } else if (this.head === this.tail) {
-      this.tail = node;
-      this.head.next = this.tail;
     } else {
       this.tail.next = node;
       this.tail = node;
