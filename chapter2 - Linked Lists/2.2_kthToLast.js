@@ -9,7 +9,7 @@ Hints: #8, #25, #47, #67, #726
 // My Solution
 
 // Linked List Class
-class LinkedList {
+class LinkedListOne {
   constructor() {
     this.head = null;
     this.tail = null;
@@ -46,6 +46,10 @@ class LinkedList {
     let ptr1 = this.head;
     let ptr2 = this.head;
 
+    if (k < 1) {
+      return null;
+    }
+
     // Move the second pointer kth steps in the Linked List
     while (count < k && ptr2 !== null) {
       ptr2 = ptr2.next;
@@ -61,16 +65,16 @@ class LinkedList {
 
     return count < k ? null : ptr1.val;
   }
-}
+};
 
 class Node {
   constructor(val) {
     this.val = val;
     this.next = null;
   }
-}
+};
 
-const list = new LinkedList();
+const list = new LinkedListOne();
 
 list.addToTail(1);
 list.addToTail(2);
@@ -82,5 +86,11 @@ console.log("\n*** Start of the Linked List ***")
 list.printList();
 console.log("*** End of the Linked List ***")
 
-// Test for My Solution
+// Tests for My Solution
+console.log(`\nIf K = ${1}. The Kth to Last Node is ${list.kthToLastNode(1)}`);
+console.log(`\nIf K = ${2}. The Kth to Last Node is ${list.kthToLastNode(2)}`);
 console.log(`\nIf K = ${3}. The Kth to Last Node is ${list.kthToLastNode(3)}`);
+console.log(`\nIf K = ${4}. The Kth to Last Node is ${list.kthToLastNode(4)}`);
+console.log(`\nIf K = ${5}. The Kth to Last Node is ${list.kthToLastNode(5)}`);
+console.log(`\nIf K = ${6}. The Kth to Last Node is ${list.kthToLastNode(6)}`);
+console.log(`\nIf K = ${-1}. The Kth to Last Node is ${list.kthToLastNode(-1)}`);
