@@ -82,9 +82,9 @@ list.addToTail(3);
 list.addToTail(4);
 list.addToTail(5);
 
-console.log("\n*** Start of the Linked List ***")
+console.log("\n*** Start of the Linked List ***");
 list.printList();
-console.log("*** End of the Linked List ***")
+console.log("*** End of the Linked List ***");
 
 // Tests for My Solution
 console.log(`\nIf K = ${1}. The Kth to Last Node is ${list.kthToLastNode(1)}`);
