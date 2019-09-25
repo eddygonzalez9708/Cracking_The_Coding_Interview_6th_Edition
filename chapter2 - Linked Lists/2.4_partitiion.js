@@ -13,7 +13,7 @@ Hints: #3, #24
 
 // My Solution
 
-class LinkedList {
+class LinkedListOne {
   constructor() {
     this.head = null;
     this.tail = null;
@@ -49,7 +49,7 @@ class LinkedList {
 
     function addNode(l, node) {
       if (!l) {
-        l = new LinkedList();
+        l = new LinkedListOne();
         l.addToTail(node.val);
       } else {
         l.addToTail(node.val);
@@ -96,7 +96,7 @@ class Node {
   }
 };
 
-const list = new LinkedList();
+const list = new LinkedListOne();
 
 list.addToTail(3);
 list.addToTail(5);
@@ -114,3 +114,76 @@ console.log("\n*** Start of the Linked List After Partitioning ***");
 list.partition(5);
 list.printList();
 console.log("*** End of the Linked List After Partitioning ***");
+
+// CTCI Solution
+
+function LinkedListTwo(value) {
+  this.value = value;
+  this.next = null;
+};
+
+function partition(head, partition) {
+  // approach is to create left and right threads
+  // and attach nodes with values less than partition value to the left
+  // and nodes with values more than partition value to the right
+  var left;
+  var right;
+  var currLeft = null;
+  var currRight = null;
+
+  var node = head;
+  
+  while (node !== null) {
+    if (node.value < partition) {
+      if (currLeft === null) {
+        left = node;
+        currLeft = left;
+      } else {
+        currLeft.next = node;
+        currLeft = currLeft.next;
+      }
+    } else {
+      if (currRight === null) {
+        right = node;
+        currRight = right;
+      } else {
+        currRight.next = node;
+        currRight = currRight.next;
+      }
+    }
+    
+    node = node.next;
+  }
+
+  currRight.next = null;
+  currLeft.next = right; // connect two partitions together
+  return left; // return head of new linkedList
+};
+
+// Test for the CTCI Solution
+
+function printList(a) {
+  while (a !== null) {
+    console.log(a.value);
+    a = a.next;
+  }
+};
+
+var a = new LinkedListTwo(3);
+var b = new LinkedListTwo(5);
+var c = new LinkedListTwo(8);
+var d = new LinkedListTwo(5);
+var e = new LinkedListTwo(10);
+var f = new LinkedListTwo(2);
+var g = new LinkedListTwo(1);
+
+a.next = b;
+b.next = c;
+c.next = d;
+d.next = e;
+e.next = f;
+f.next = g;
+
+var newa = partition(a, 5);
+console.log();
+printList(newa);
