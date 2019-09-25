@@ -14,13 +14,7 @@ Result: nothing is returned, but the new linked list looks like a -> b -> d -> e
 Hints: #72
 */
 
-// 1 2 3
-
-// 1 2 3 4
-
-// 1 2 3 4 5
-
-class LinkedList {
+class LinkedListOne {
   constructor() {
     this.head = null;
     this.tail = null;
@@ -84,9 +78,9 @@ class Node {
     this.val = val;
     this.next = null;
   }
-}
+};
 
-const list = new LinkedList();
+const list = new LinkedListOne();
 
 list.addToTail(1);
 list.addToTail(2);
@@ -103,8 +97,65 @@ console.log("\n*** Start of the Linked List ***");
 list.printList();
 console.log("*** End of the Linked List ***");
 
+// Test for My Solution
 list.delMidNode();
 
 console.log("\n*** Start of the Linked List After Removing the Middle Node ***");
 list.printList();
 console.log("*** End of the Linked List After Removing the Middle Node ***");
+
+// CTCI Solution
+
+function LinkedListTwo(value) {
+  this.value = value;
+  this.next = null;
+};
+
+function deleteMidNode(midNode) {
+  var node = midNode;
+  
+  while (node !== null && node.next !== null) {
+    node.value = node.next.value;
+    
+    if (node.next.next === null) {
+      node.next = null;
+    } 
+    
+    node = node.next;
+  }
+};
+
+// a -> b -> c -> d -> e -> f, input c
+// a -> b -> *d -> d -> e -> f
+// a -> b -> d -> *e -> e -> f
+// a -> b -> d -> e -> *f -> f
+// a -> b -> d -> e -> f -> *null
+
+function printList(head) {
+  console.log();
+  
+  while (head !== null) {
+    console.log(head.value);
+    head = head.next;
+  }
+  
+  console.log('done printing');
+};
+
+var a = new LinkedListTwo('a');
+var b = new LinkedListTwo('b');
+var c = new LinkedListTwo('c');
+var d = new LinkedListTwo('d');
+var e = new LinkedListTwo('e');
+var f = new LinkedListTwo('f');
+
+a.next = b;
+b.next = c;
+c.next = d;
+d.next = e;
+e.next = f;
+
+// Test for CTCI Solution
+printList(a);
+deleteMidNode(c);
+printList(a);
