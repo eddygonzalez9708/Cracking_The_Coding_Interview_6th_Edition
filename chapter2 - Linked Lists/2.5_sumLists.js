@@ -61,41 +61,45 @@ class Node {
   }
 };
 
-function sumLists(l1, l2) {
-  function helperFunc(node, exp) {
-    if (!node) {
-      return 0;
+function sumListsReverse(l1, l2) {
+  let node1 = l1.head;
+  let node2 = l2.head;
+  const list = new LinkedList();
+  let carryNum = 0;
+  
+  while (node1 || node2 || carryNum) {
+    if (!node1 && !node2) {
+      list.addToTail(carryNum);
+      carryNum = 0;
+    } else if (node1 && !node2) {
+      list.addToTail(node1.val + carryNum)
+      carryNum = 0;
+      node1 = node1.next; 
+    } else if (!node1 && node2) {
+      list.addToTail(node2.val + carryNum);
+      carryNum = 0;
+      node2 = node2.next;
+    } else {
+      const total = node1.val + node2.val + carryNum;
+      
+      if (total < 10) {
+        list.addToTail(total);
+        carryNum = 0;
+      } else {
+        list.addToTail(total % 10);
+        carryNum = (total - (total % 10)) / 10;
+      }
+
+      node1 = node1.next;
+      node2 = node2.next;
     }
-    
-    return (node.val * (10 ** exp)) + helperFunc(node.next, exp + 1);
   }
   
-  const sum1 = helperFunc(l1.head, 0);
-  const sum2 = helperFunc(l2.head, 0);
-
-  function createList(total) {
-    let exp = 1;
-    const newList = new LinkedList();
-  
-    while (total) {
-      const num = (total % (10 ** exp));
-      const div = (10 ** (exp - 1));
-      const result = num / div;
-      
-      newList.addToTail(result);
-      
-      total -= num;
-      exp++;
-    }
-
-    return newList;
-  }
-
-  return createList(sum1 + sum2)
+  return list;
 }
 
 // Tests for My Solution
-
+console.log("\n*** Sum Lists Reversed ***");
 const list1 = new LinkedList();
 const list2 = new LinkedList();
 
@@ -107,7 +111,7 @@ list2.addToTail(2);
 list2.addToTail(9);
 list2.addToTail(5);
 
-const list3 = sumLists(list1, list2);
+const list3 = sumListsReverse(list1, list2);
 list3.printList();
 console.log();
 
@@ -121,7 +125,7 @@ list4.addToTail(2);
 list5.addToTail(5);
 list5.addToTail(9);
 
-const list6 = sumLists(list4, list5);
+const list6 = sumListsReverse(list4, list5);
 list6.printList();
 console.log();
 
@@ -136,6 +140,6 @@ list8.addToTail(6);
 list8.addToTail(8);
 list8.addToTail(5);
 
-const list9 = sumLists(list7, list8);
+const list9 = sumListsReverse(list7, list8);
 list9.printList();
 console.log();
