@@ -73,6 +73,7 @@ e.next = f;
 var newHead = sumList(a, d);
 
 printList(newHead);
+console.log();
 
 // Input: (7 -> 1 -> 6) + (5 -> 9 -> 9). this case refers to 617 + 995
 // Output: 2 -> 1 -> 9. the answer refers to 1612
@@ -92,6 +93,5 @@ d.next = e;
 e.next = f;
 
 var newHead = sumList(a, d);
-console.log();
 
 printList(newHead);
