@@ -1,5 +1,5 @@
-var LinkedList = require('./../util/LinkedList');
-var printList = require('./../util/printList');
+var LinkedList = require('../util/LinkedList');
+var printList = require('../util/printList');
 
 var sumList = function(head1, head2) {
   
@@ -92,5 +92,6 @@ d.next = e;
 e.next = f;
 
 var newHead = sumList(a, d);
+console.log();
 
 printList(newHead);
