@@ -117,39 +117,35 @@ class Node {
 };
 
 function sumListsReverse(l1, l2) {
+  const list = new LinkedList();
   let node1 = l1.head;
   let node2 = l2.head;
-  const list = new LinkedList();
   let carryNum = 0;
   
   while (node1 || node2 || carryNum) {
     if (!node1 && !node2) {
-      list.addToTail(carryNum);
-      carryNum = 0;
+      total = carryNum;
     } else if (node1 && !node2) {
-      list.addToTail(node1.val + carryNum)
-      carryNum = 0;
+      total = node1.val + carryNum;
       node1 = node1.next; 
     } else if (!node1 && node2) {
-      list.addToTail(node2.val + carryNum);
-      carryNum = 0;
+      total = node2.val + carryNum;
       node2 = node2.next;
     } else {
-      const total = node1.val + node2.val + carryNum;
-      
-      if (total < 10) {
-        list.addToTail(total);
-        carryNum = 0;
-      } else {
-        list.addToTail(total % 10);
-        carryNum = (total - (total % 10)) / 10;
-      }
-
+      total = node1.val + node2.val + carryNum;
       node1 = node1.next;
       node2 = node2.next;
     }
+      
+    if (total < 10) {
+      list.addToTail(total);
+      carryNum = 0;
+    } else {
+      list.addToTail(total % 10);
+      carryNum = (total - (total % 10)) / 10;
+    }
   }
-  
+
   return list;
 }
 
@@ -189,52 +185,52 @@ function sumListsForward(l1, l2) {
 };
 
 // Tests for My Solution
-// console.log("\n*** Sum Lists Reversed ***");
-// const list1 = new LinkedList();
-// const list2 = new LinkedList();
+console.log("\n*** Sum Lists Reversed ***");
+const list1 = new LinkedList();
+const list2 = new LinkedList();
 
-// list1.addToTail(6);
-// list1.addToTail(1);
-// list1.addToTail(7);
+list1.addToTail(6);
+list1.addToTail(1);
+list1.addToTail(7);
 
-// list2.addToTail(2);
-// list2.addToTail(9);
-// list2.addToTail(5);
+list2.addToTail(2);
+list2.addToTail(9);
+list2.addToTail(5);
 
-// const list3 = sumListsReverse(list1, list2);
-// list3.printList();
-// console.log();
+const list3 = sumListsReverse(list1, list2);
+list3.printList();
+console.log();
 
-// const list4 = new LinkedList();
-// const list5 = new LinkedList();
+const list4 = new LinkedList();
+const list5 = new LinkedList();
 
-// list4.addToTail(2);
-// list4.addToTail(4);
-// list4.addToTail(2);
+list4.addToTail(2);
+list4.addToTail(4);
+list4.addToTail(2);
 
-// list5.addToTail(5);
-// list5.addToTail(9);
+list5.addToTail(5);
+list5.addToTail(9);
 
-// const list6 = sumListsReverse(list4, list5);
-// list6.printList();
-// console.log();
+const list6 = sumListsReverse(list4, list5);
+list6.printList();
+console.log();
 
-// const list7 = new LinkedList();
-// const list8 = new LinkedList();
+const list7 = new LinkedList();
+const list8 = new LinkedList();
 
-// list7.addToTail(9);
-// list7.addToTail(7);
-// list7.addToTail(8);
+list7.addToTail(9);
+list7.addToTail(7);
+list7.addToTail(8);
 
-// list8.addToTail(6);
-// list8.addToTail(8);
-// list8.addToTail(5);
+list8.addToTail(6);
+list8.addToTail(8);
+list8.addToTail(5);
 
-// const list9 = sumListsReverse(list7, list8);
-// list9.printList();
-// console.log();
+const list9 = sumListsReverse(list7, list8);
+list9.printList();
+console.log();
 
-console.log("\n*** Sum Lists Forward ***");
+console.log("*** Sum Lists Forward ***");
 const doublyList10 = new DoublyLinkedList();
 const doublyList11 = new DoublyLinkedList();
 
