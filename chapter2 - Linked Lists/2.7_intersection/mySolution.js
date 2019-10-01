@@ -43,8 +43,9 @@ function intersection(node1, node2) {
   }
 
   return null;
-}
+};
 
+// Tests for My Solution
 let a = new LinkedList('a');
 let b = new LinkedList('b');
 let c = new LinkedList('c');
