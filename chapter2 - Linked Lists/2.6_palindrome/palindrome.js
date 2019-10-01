@@ -1,7 +1,7 @@
 // if doubly - move to middle, and then extend front and back to check
 // if singly - make a reversed linkedlist from the first half
 
-var LinkedList = require('./../util/LinkedList');
+var LinkedList = require('../util/LinkedList');
 
 var palindrome = function(head) {
   var mid = head;
