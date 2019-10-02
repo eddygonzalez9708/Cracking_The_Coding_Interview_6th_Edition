@@ -36,11 +36,11 @@ function loopDetection(node) {
   return false;
 };
 
-const a = new LinkedList('a')
-const b = new LinkedList('b')
-const c = new LinkedList('c')
-const d = new LinkedList('d')
-const e = new LinkedList('e')
+const a = new LinkedList('a');
+const b = new LinkedList('b');
+const c = new LinkedList('c');
+const d = new LinkedList('d');
+const e = new LinkedList('e');
 
 a.next = b;
 b.next = c;
