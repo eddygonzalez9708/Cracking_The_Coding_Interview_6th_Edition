@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class FixedMultiStack {
   private int numberOfStacks = 3;
   private int stackCapacity;
