@@ -1,7 +1,7 @@
 class FixedMultiStack {
   constructor(stackCapacity) {
     this.stackCapacity = stackCapacity;
-    this.sizes = Array(3).fill(null);
+    this.sizes = Array(3).fill(0);
     this.values = Array(3 * stackCapacity).fill(null);
   }
 
