@@ -72,7 +72,7 @@ public class MultiStack {
   }
 
   /* Remove value from stack. */
-  public int pop(int stackNum) throws Exception {
+  public int pop(int stackNum) throws EmptyStackException {
     StackInfo stack = info[stackNum];
 
     if (stack.isEmpty()) {
