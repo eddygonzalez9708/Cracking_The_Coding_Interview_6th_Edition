@@ -3,39 +3,31 @@
 class Stack {
   constructor() {
     this.stack = [];
+    this.minStack = [];
     this.min = null;
-    this.cache = {}
   }
 
   push(val) {
     this.stack.push(val);
 
-    if (this.min === null || val < this.min) {
-      this.cache[val] = {
-        count: 1,
-        prev: this.min
-      }
-
+    if (!this.min || val <= this.min) {
+      this.minStack.push(val);
       this.min = val;
-    } else if (this.cache[val]) {
-      this.cache[val].count++;
     }
   };
 
   pop() {
-    const val = this.stack.pop();
+    const val = this.stack.length ? this.stack.pop() : null;
 
-    if (this.cache[val]) {
-      this.cache[val].count--;
-
-      if (!this.cache[val].count) {
-        if (val === this.min) {
-          this.min = this.cache[val].prev;
-        }
-
-        delete this.cache[val];
+    if (val === this.min) {
+      this.minStack.pop();
+      if (this.minStack.length) {
+        const topNum = this.minStack.length - 1;
+        this.min = this.minStack[topNum];
+      } else {
+        this.min = null;
       }
-    }; 
+    }
 
     return val;
   };
