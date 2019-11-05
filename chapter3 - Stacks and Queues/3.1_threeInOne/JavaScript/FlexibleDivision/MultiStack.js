@@ -24,7 +24,7 @@ class MultiStack {
     const stack = this.info[stackNum];
 
     if (stack.isFull()) {
-      expand(stackNum);
+      this.expand(stackNum);
     }
 
     /* Find the index of the top element in the array + 1, and increment the 
@@ -75,15 +75,15 @@ class MultiStack {
     }
 
     /* Shift all elements in stack over by one. */
-    const index = stack.lastCapacityIndex();
+    let index = stack.lastCapacityIndex();
     while (stack.isWithinStackCapacity(index)) {
-      this.values[index] = this.values[previousIndex(index)];
-      index = previousIndex(index);
+      this.values[index] = this.values[this.previousIndex(index)];
+      index = this.previousIndex(index);
     }
 
     /* Adjust stack data. */
     this.values[stack.start] = 0; // Clear item
-    stack.start = nextIndex(stack.start); // move start
+    stack.start = this.nextIndex(stack.start); // move start
     stack.capacity--; // Shrink capacity
   }
 
@@ -120,12 +120,12 @@ class MultiStack {
 
   /* Get index after this index, adjusted for wrap around. */ 
   nextIndex(index) {
-    return adjustIndex(index + 1);
+    return this.adjustIndex(index + 1);
   }
 
   /* Get index before this index, adjusted for wrap around. */
   previousIndex(index) {
-    return adjustIndex(index - 1);
+    return this.adjustIndex(index - 1);
   }
 }
 
