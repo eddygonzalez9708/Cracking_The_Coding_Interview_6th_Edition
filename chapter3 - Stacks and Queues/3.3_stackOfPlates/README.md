@@ -4,6 +4,6 @@ Imagine a (literal) stack of plates. If the stack gets too high, it might topple
 
 FOLLOW UP
 
-Implement a function popAt(int index)which performs a pop operation on a specific sub-stack.
+Implement a function popAt(int index) which performs a pop operation on a specific sub-stack.
 
 Hints: #64, #87
