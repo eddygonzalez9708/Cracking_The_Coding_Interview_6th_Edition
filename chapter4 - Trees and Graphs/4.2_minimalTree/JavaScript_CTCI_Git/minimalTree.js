@@ -13,9 +13,11 @@ var insertBalanced = function(array) {
   while (!q.isEmpty()) {
     currArr = q.remove();
 
+    console.log(currArr);
+
     bst.insert(currArr[floor(currArr.length / 2)]);
 
-    if (currArr.slice(0, floor(currArr.length / 2 )).length > 0) {
+    if (currArr.slice(0, floor(currArr.length / 2)).length > 0) {
       q.add(currArr.slice(0, floor(currArr.length / 2)));
     }
 
