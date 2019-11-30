@@ -1,8 +1,13 @@
 const MinimalTree = require("./MinimalTree");
-const print = require("./Print");
+const inOrderPrint = require("./BT_Print").inOrderPrint;
+const printLevel = require("./BT_Print").printLevel;
 
 const minTree = new MinimalTree();
 
 minTree.create([1, 2, 3, 4, 5, 6, 7, 8]);
 
-print(minTree.root);
+inOrderPrint(minTree.root);
+
+console.log();
+
+printLevel(minTree.root);
