@@ -1,18 +1,15 @@
+import dfs.TreeNode;
 import dfs.BST;
 import dfs.ListOfDepths;
-import dfs.TreeNode;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.Iterator;
 
 public class MainDFS {
   public static void printList(ArrayList<LinkedList<TreeNode>> list) {
-    for (LinkedList ll : list) {
-      Iterator<TreeNode> iterate = ll.iterator();
-      
-      while (iterate.hasNext()) {
-        System.out.print(iterate.next().val + " ");
+    for (LinkedList<TreeNode> ll : list) {
+      for (TreeNode node : ll) {
+        System.out.print(node.val + " ");
       }
 
       System.out.println();
