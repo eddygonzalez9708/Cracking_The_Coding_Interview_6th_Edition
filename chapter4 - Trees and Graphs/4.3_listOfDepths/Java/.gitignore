@@ -1,2 +1,3 @@
 *.class
 ./dfs/*.class
+./bfs/*.class
