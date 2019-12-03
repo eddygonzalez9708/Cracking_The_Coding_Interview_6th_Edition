@@ -1,2 +1,3 @@
 *.class
 ./inefficient/*.class
+./efficient/*.class
