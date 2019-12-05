@@ -1,23 +1,26 @@
 function findSuccessor(n) {
-  if (!n.right) {
-    return checkPar(n.par, n.val);
-  } else if (n.right && !n.right.left) {
-    return n.right.val;
-  } else {
-    return n.right.left.val;
-  }
-};
+  let successor = null;
 
-function checkPar(n, val) {
-  if (!n) {
-    return null;
+  if (n.right) {
+    successor = n.right;
+
+    while (successor.left) {
+      successor = successor.left;
+      break;
+    }
+  } else if (n.par) {
+    let currNode = n;
+
+    while (currNode.par && !successor) {
+      if (currNode.par.left === currNode) {
+        successor = currNode.par;
+      }
+
+      currNode = currNode.par;
+    }
   }
 
-  if (n.val > val) {
-    return n.val;
-  } else {
-    return checkPar(n.par, val);
-  }
+  return successor ? successor.val : null;
 };
 
 module.exports = findSuccessor;
