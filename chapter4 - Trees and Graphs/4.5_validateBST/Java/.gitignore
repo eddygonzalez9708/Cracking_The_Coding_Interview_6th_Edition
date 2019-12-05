@@ -1,3 +1,4 @@
 *.class
 ./solution1/*.class
 ./solution2/*.class
+./solution3/*.class
